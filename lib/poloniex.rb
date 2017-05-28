@@ -103,6 +103,10 @@ module Poloniex
     post 'returnMarginAccountSummary'
   end
 
+  def get_margin_position(currency_pair)
+    post 'getMarginPosition', currencyPair: currency_pair
+  end
+
   def self.margin_buy(currency_pair, rate, amount)
     post 'marginBuy', currencyPair: currency_pair, rate: rate, amount: amount
   end
@@ -110,6 +114,11 @@ module Poloniex
   def self.margin_sell(currency_pair, rate, amount)
     post 'marginSell', currencyPair: currency_pair, rate: rate, amount: amount
   end
+    
+  def self.close_margin_position(currency_pair)
+    post 'closeMarginPosition' currencyPair: currency_pair
+  end
+    
 
   def self.deposit_addresses
     post 'returnDepositAddresses'
